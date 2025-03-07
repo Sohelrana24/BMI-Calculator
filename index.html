@@ -1,1 +1,33 @@
-<button id="reset-btn">Reset</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>BMI Calculator</h1>
+    <form id="bmi-form">
+      <label for="weight">Weight (kg):</label>
+      <input type="number" id="weight" name="weight" required>
+      
+      <label for="height">Height (cm):</label>
+      <input type="number" id="height" name="height" required>
+      
+      <button type="submit" id="calculate-btn">Calculate BMI</button>
+    </form>
+
+    <div id="result-container" class="result">
+      <p id="bmi-result">Your BMI is: </p>
+      <p id="category"></p>
+    </div>
+
+    <!-- Reset Button -->
+    <button id="reset-btn">Reset</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
