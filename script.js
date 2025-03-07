@@ -1,27 +1,35 @@
+// Get references to the DOM elements
+const calculateBtn = document.getElementById("calculate-btn");
+const resultContainer = document.getElementById("result-container");
+
+// Function to calculate BMI
 function calculateBMI() {
-    let height = parseFloat(document.getElementById('height').value);
-    let weight = parseFloat(document.getElementById('weight').value);
-    
-    if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
-        document.getElementById('result').innerText = "Please enter valid height and weight!";
-        return;
-    }
-    
-    // Calculate BMI
-    let bmi = weight / (height * height);
+  const height = parseFloat(document.getElementById("height").value);
+  const weight = parseFloat(document.getElementById("weight").value);
 
-    // Display the result with interpretation
-    let resultText = "Your BMI is: " + bmi.toFixed(2) + "\n";
-    
-    if (bmi < 18.5) {
-        resultText += "You are underweight.";
-    } else if (bmi >= 18.5 && bmi <= 24.9) {
-        resultText += "You have a normal weight.";
-    } else if (bmi >= 25 && bmi <= 29.9) {
-        resultText += "You are overweight.";
-    } else {
-        resultText += "You are obese.";
-    }
+  if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+    resultContainer.innerHTML = "<p class='error'>Please enter valid height and weight values.</p>";
+    return;
+  }
 
-    document.getElementById('result').innerText = resultText;
+  const bmi = weight / (height * height);
+  let bmiCategory = '';
+
+  if (bmi < 18.5) {
+    bmiCategory = "Underweight";
+  } else if (bmi >= 18.5 && bmi < 24.9) {
+    bmiCategory = "Normal weight";
+  } else if (bmi >= 25 && bmi < 29.9) {
+    bmiCategory = "Overweight";
+  } else {
+    bmiCategory = "Obese";
+  }
+
+  resultContainer.innerHTML = `
+    <h3>Your BMI: ${bmi.toFixed(2)}</h3>
+    <p>Category: <strong>${bmiCategory}</strong></p>
+  `;
 }
+
+// Add event listener to the button
+calculateBtn.addEventListener("click", calculateBMI);
