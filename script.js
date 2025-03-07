@@ -14,18 +14,26 @@ document.getElementById('calculate-btn').addEventListener('click', function() {
 
   // Categorize BMI
   var category = '';
+  var resultClass = '';
+
   if (bmi < 18.5) {
     category = 'Underweight';
+    resultClass = 'underweight';
   } else if (bmi < 24.9) {
     category = 'Normal weight';
+    resultClass = 'normal';
   } else if (bmi < 29.9) {
     category = 'Overweight';
+    resultClass = 'overweight'; // Red for overweight
   } else {
     category = 'Obesity';
+    resultClass = 'obesity';
   }
 
   // Display the result
   var resultText = 'Your BMI: ' + bmi.toFixed(2) + '<br>Category: ' + category;
-  document.getElementById('result-container').innerHTML = resultText;
-  document.getElementById('result-container').style.display = 'block';
+  var resultContainer = document.getElementById('result-container');
+  resultContainer.innerHTML = resultText;
+  resultContainer.className = resultClass; // Apply the class to style
+  resultContainer.style.display = 'block';
 });
