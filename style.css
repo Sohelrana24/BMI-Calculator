@@ -67,3 +67,20 @@ strong {
   color: #333;
   font-size: 18px;
 }
+
+/* Styling for different categories */
+.underweight {
+  color: blue;
+}
+
+.normal {
+  color: green;
+}
+
+.overweight {
+  color: red; /* Red color for Overweight category */
+}
+
+.obesity {
+  color: purple;
+}
