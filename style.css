@@ -1,12 +1,79 @@
-#reset-btn {
-  background-color: #ffcc00;
+/* Reset all margins and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Main container styles */
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Heading */
+h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+form label {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+form input {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px;
+  background-color: #4CAF50;
   color: white;
   border: none;
-  padding: 10px;
-  border-radius: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#reset-btn {
+  background-color: #f44336;
+  color: white;
   width: 100%;
+  margin-top: 20px;
 }
 
 #reset-btn:hover {
-  background-color: #ff9900;
+  background-color: #d32f2f;
+}
+
+.result {
+  display: none;
+  margin-top: 20px;
+}
+
+#bmi-result, #category {
+  font-size: 1.2rem;
+  color: #333;
 }
