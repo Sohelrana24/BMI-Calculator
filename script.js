@@ -1,35 +1,31 @@
-// Get references to the DOM elements
-const calculateBtn = document.getElementById("calculate-btn");
-const resultContainer = document.getElementById("result-container");
+document.getElementById('calculate-btn').addEventListener('click', function() {
+  var height = parseFloat(document.getElementById('height').value);
+  var weight = parseFloat(document.getElementById('weight').value);
 
-// Function to calculate BMI
-function calculateBMI() {
-  const height = parseFloat(document.getElementById("height").value);
-  const weight = parseFloat(document.getElementById("weight").value);
-
+  // Validate the input values
   if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
-    resultContainer.innerHTML = "<p class='error'>Please enter valid height and weight values.</p>";
+    document.getElementById('result-container').innerHTML = '<p class="error">Please enter valid positive numbers for both height and weight.</p>';
+    document.getElementById('result-container').style.display = 'block';
     return;
   }
 
-  const bmi = weight / (height * height);
-  let bmiCategory = '';
+  // Calculate BMI
+  var bmi = weight / (height * height);
 
+  // Categorize BMI
+  var category = '';
   if (bmi < 18.5) {
-    bmiCategory = "Underweight";
-  } else if (bmi >= 18.5 && bmi < 24.9) {
-    bmiCategory = "Normal weight";
-  } else if (bmi >= 25 && bmi < 29.9) {
-    bmiCategory = "Overweight";
+    category = 'Underweight';
+  } else if (bmi < 24.9) {
+    category = 'Normal weight';
+  } else if (bmi < 29.9) {
+    category = 'Overweight';
   } else {
-    bmiCategory = "Obese";
+    category = 'Obesity';
   }
 
-  resultContainer.innerHTML = `
-    <h3>Your BMI: ${bmi.toFixed(2)}</h3>
-    <p>Category: <strong>${bmiCategory}</strong></p>
-  `;
-}
-
-// Add event listener to the button
-calculateBtn.addEventListener("click", calculateBMI);
+  // Display the result
+  var resultText = 'Your BMI: ' + bmi.toFixed(2) + '<br>Category: ' + category;
+  document.getElementById('result-container').innerHTML = resultText;
+  document.getElementById('result-container').style.display = 'block';
+});
